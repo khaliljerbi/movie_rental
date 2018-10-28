@@ -3,7 +3,6 @@ const Joi = require('joi');
 const genreSchema = new mongoose.Schema({
     name: {
         type: String,
-        unique: true, 
         required: true
     }
 });
@@ -18,5 +17,6 @@ const validateInput = (input) => {
 
 module.exports = {
     Genre : mongoose.model('genres' , genreSchema),
-    validate : validateInput
+    validate : validateInput,
+    genreSchema
 };

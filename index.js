@@ -10,6 +10,7 @@ const keys = require('./config/keys');
 //routes import
 const genres = require('./routes/genres');
 const customers = require('./routes/customers');
+const movies = require('./routes/movies');
 
 const port = process.env.PORT || 3000;
 
@@ -34,5 +35,6 @@ mongoose.connect(keys.url , {useNewUrlParser: true , useCreateIndex : true , use
 
 app.use('/api/genres' , genres);
 app.use('/api/customers' , customers);
+app.use('/api/movies' , movies);
 
 app.listen(port , () => console.log(`app listening to port : ${port}...`));
