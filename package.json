@@ -1,0 +1,21 @@
+{
+  "name": "moshi-vid",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "khalil",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^4.1.0",
+    "express": "^4.16.4",
+    "joi": "^14.0.0",
+    "mongoose": "^5.3.6",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
+  }
+}
