@@ -27,7 +27,7 @@ router.post('/' , async (req,res) => {
 
 
     const newMovie = new Movie({
-        name: req.body.name,
+        title: req.body.title,
         numberInStock : req.body.numberInStock,
         dailyRentalRate: req.body.dailyRentalRate,
         genre: {
@@ -57,7 +57,7 @@ router.put('/:id' , async(req , res) => {
     if(!genre) return res.status(404).send('Genre not found');
 
     const movie = await  Movie.findOneAndUpdate({_id: req.params.id} , {
-        name: req.body.name,
+        title: req.body.title,
         numberInStock: req.body.numberInStock,
         dailyRentalRate: req.body.dailyRentalRate,
         genre: {

@@ -34,5 +34,6 @@ const validateCustomerInputs = value => {
 
 module.exports = {
     Customer : mongoose.model('customers' , customerSchema),
-    validate : validateCustomerInputs
+    validate : validateCustomerInputs,
+    customerSchema
 };
