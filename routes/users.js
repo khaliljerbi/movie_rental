@@ -3,10 +3,20 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const _ = require('lodash');
 
+const auth = require('../middlewares/authorization');
 const {User , validateRegister } = require('../models/user');
+
+router.get('/me' , auth , async(req,res) => {
+
+    const user = await User.findById(req.user._id).select('-password');
+
+    res.status(200).json(user);
+
+});
 
 router.post('/register' , async (req,res) => {
 
+    
     const {error} = validateRegister(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
@@ -19,7 +29,9 @@ router.post('/register' , async (req,res) => {
     
     await user.save();
 
-    res.status(200).json(_.pick(user, ['_id', 'name', 'email']));
+    const token = user.generateAuthToken();
+
+    res.header('x-auth-token', token).status(200).json(_.pick(user, ['_id', 'name', 'email']));
 
 });
 

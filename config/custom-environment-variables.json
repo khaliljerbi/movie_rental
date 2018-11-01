@@ -1,3 +1,4 @@
 {
-    "jwtkey": "movie_jwtSecretKey"
+    "jwtkey": "movie_jwtSecretKey",
+    "env":"NODE_ENV"
 }

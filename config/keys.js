@@ -1,3 +1,3 @@
 module.exports = {
-    url: 'mongodb://localhost/vidi-mosh'
+    url: 'Your database.'
 }

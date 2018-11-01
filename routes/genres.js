@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
+const authorization = require('../middlewares/authorization');
+const checkAdmin = require('../middlewares/admin');
 const {Genre , validate } = require('../models/genre');
 
 
@@ -12,7 +13,7 @@ router.get('/' , async (req, res) => {
 
 
 //Posting genre 
-router.post('/' , async (req,res) => {
+router.post('/' ,authorization, async (req,res) => {
     const {error} = validate(req.body);
     const newGenre = new Genre({
         name: req.body.name
@@ -33,7 +34,7 @@ router.post('/' , async (req,res) => {
     
 });
 
-router.delete('/:id' , async(req, res) => {
+router.delete('/:id' ,[authorization, checkAdmin], async(req, res) => {
     try {
         const genre =  await Genre.findOneAndDelete({_id : req.params.id});
 

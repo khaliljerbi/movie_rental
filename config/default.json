@@ -1,3 +1,4 @@
 {
-    "jwtkey": ""
+    "jwtkey": "",
+    "env": ""
 }
